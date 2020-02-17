@@ -23,7 +23,8 @@ Flickr-Faces-HQ dataset is used.
 ### Train
 You can use 
 ``` 
-python train.py 
+chmod +x run.sh
+./run.sh
 ``` 
 
 Refer the train.py files to check the arguement.
