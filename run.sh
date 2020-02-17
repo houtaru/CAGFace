@@ -44,13 +44,6 @@ sudo apt-get update
 sudo apt-get install gcc-4.9 g++-4.9
 sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.9 60 --slave /usr/bin/g++ g++ /usr/bin/g++-4.9
 
-# CentOS (https://www.softwarecollections.org/en/scls/rhscl/devtoolset-3/)
-sudo yum install centos-release-scl
-sudo yum-config-manager --enable rhel-server-rhscl-7-rpms
-sudo yum install devtoolset-3
-scl enable devtoolset-3 bash
-
-
 # Install ninja linux
 wget https://github.com/ninja-build/ninja/releases/download/v1.8.2/ninja-linux.zip
 sudo unzip ninja-linux.zip -d /usr/local/bin/
