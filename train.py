@@ -10,11 +10,11 @@ from optimizer import Optimizer
 
 import matplotlib.pyplot as plt
 
-pretrained = True
+pretrained = False
 lr_start   = 1e-16 #0.0000505
 visualize  = True
 
-dl = Data_Loader('/home/yo0n/바탕화면/Flicker',256,1).loader()
+dl = Data_Loader('data',256,1).loader()
 
 if(pretrained):
     model = torch.load('./checkpoints/cand.pth')
@@ -37,7 +37,6 @@ criteria = nn.SmoothL1Loss()
 ## optimizer
 #optimizer = optim.SGD(model.parameters(), lr=lr_start)
 optimizer = optim.Adam(model.parameters(), lr=lr_start)
-
 
 
 for epoch in range(10):
