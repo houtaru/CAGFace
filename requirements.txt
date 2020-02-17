@@ -1,4 +1,3 @@
 torchvision
 tqdm
 gdown
-zipfile
