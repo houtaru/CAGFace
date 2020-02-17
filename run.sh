@@ -8,7 +8,7 @@ mkdir -p checkpoints
 
 printf "Installing missing packages"
 # Install requirement
-pip3 install -r requirements.tct
+pip3 install -r requirements.txt
 pip3 install http://download.pytorch.org/whl/cu92/torch-0.4.1-cp36-cp36m-linux_x86_64.whl
 
 printf "Downloading dataset..."
