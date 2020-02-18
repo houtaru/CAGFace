@@ -21,26 +21,28 @@ printf "Downloading dataset...\n"
 # Downloading test 
 if [ ! -f 'celeba.zip' ]; then 
 python - <<END 
-    import gdown 
-    from zipfile import ZipFile 
+import gdown 
 
-    # Variables 
-    fileId = '1-eENcWVi0gN5o6mrzT09WBv8FX66jMLV' 
-    url = 'https://drive.google.com/uc?id=' + fileId 
-    des = 'celeba.zip' 
+# Variables 
+fileId = '1-eENcWVi0gN5o6mrzT09WBv8FX66jMLV' 
+url = 'https://drive.google.com/uc?id=' + fileId 
+des = 'celeba.zip' 
 
-    # Download dataset 
-    gdown.download(url, des, quiet=False) 
+# Download dataset 
+gdown.download(url, des, quiet=False) 
 END
 fi
 
 if [ ! -f 'data' ]; then
 mkdir -p data
 python -<<END
-    print('Extracting...')
-    # Extracting dataset 
-    with ZipFile(des, 'r') as obj: 
-        obj.extractall('data') 
+from zipfile import ZipFile 
+
+des = 'celeba.zip' 
+print('Extracting...')
+# Extracting dataset 
+with ZipFile(des, 'r') as obj: 
+    obj.extractall('data') 
 END
 fi
 
