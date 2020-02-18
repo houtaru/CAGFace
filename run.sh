@@ -20,23 +20,27 @@ pip3 install -r requirements.txt
 printf "Downloading dataset...\n" 
 # Downloading test 
 if [ ! -f 'celeba.zip' ]; then 
-mkdir data
 python - <<END 
-import gdown 
-from zipfile import ZipFile 
+    import gdown 
+    from zipfile import ZipFile 
 
-# Variables 
-fileId = '1-eENcWVi0gN5o6mrzT09WBv8FX66jMLV' 
-url = 'https://drive.google.com/uc?id=' + fileId 
-des = 'celeba.zip' 
+    # Variables 
+    fileId = '1-eENcWVi0gN5o6mrzT09WBv8FX66jMLV' 
+    url = 'https://drive.google.com/uc?id=' + fileId 
+    des = 'celeba.zip' 
 
-# Download dataset 
-gdown.download(url, des, quiet=False) 
+    # Download dataset 
+    gdown.download(url, des, quiet=False) 
+END
+fi
 
-print('Extracting...')
-# Extracting dataset 
-with ZipFile(des, 'r') as obj: 
-    obj.extractall('data') 
+if [ ! -f 'data' ]; then
+mkdir -p data
+python -<<END
+    print('Extracting...')
+    # Extracting dataset 
+    with ZipFile(des, 'r') as obj: 
+        obj.extractall('data') 
 END
 fi
 
@@ -53,10 +57,11 @@ sudo apt-get install gcc g++
 # sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.9 60 --slave /usr/bin/g++ g++ /usr/bin/g++-4.9
 
 # Install ninja linux
-if [ -f 'ninja-linux.zip' ]
-wget https://github.com/ninja-build/ninja/releases/download/v1.8.2/ninja-linux.zip
-sudo unzip ninja-linux.zip -d /usr/local/bin/
-sudo update-alternatives --install /usr/bin/ninja ninja /usr/local/bin/ninja 1 --force
+if [ -f 'ninja-linux.zip' ]; then
+    wget https://github.com/ninja-build/ninja/releases/download/v1.8.2/ninja-linux.zip
+    sudo unzip ninja-linux.zip -d /usr/local/bin/
+    sudo update-alternatives --install /usr/bin/ninja ninja /usr/local/bin/ninja 1 --force
+fi
 
 printf "Training...\n " 
 # Start training
