@@ -14,7 +14,7 @@ pretrained = False
 lr_start   = 1e-16 #0.0000505
 visualize  = True
 
-dl = Data_Loader('data',256,1).loader()
+dl = Data_Loader('./data/img_align_celeba',256,1).loader()
 
 if(pretrained):
     model = torch.load('./checkpoints/cand.pth')

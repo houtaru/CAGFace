@@ -33,7 +33,8 @@ des = 'celeba.zip'
 # Download dataset 
 gdown.download(url, des, quiet=False) 
 
-# Exacting dataset 
+print('Extracting...')
+# Extracting dataset 
 with ZipFile(des, 'r') as obj: 
     obj.extractall('data') 
 END
