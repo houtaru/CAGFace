@@ -65,6 +65,3 @@ if [ -f 'ninja-linux.zip' ]; then
     sudo update-alternatives --install /usr/bin/ninja ninja /usr/local/bin/ninja 1 --force
 fi
 
-printf "Training...\n " 
-# Start training
-python train.py
