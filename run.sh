@@ -6,10 +6,10 @@ set -e
 # Create neccessary folder to storage date
 mkdir -p checkpoints
 
-printf "Installing missing packages" 
+printf "Installing requirements...\n" 
 # Install requirement
+# pip3 install http://download.pytorch.org/whl/cu92/torch-0.4.1-cp36-cp36m-linux_x86_64.whl
 pip3 install -r requirements.txt 
-pip3 install http://download.pytorch.org/whl/cu92/torch-0.4.1-cp36-cp36m-linux_x86_64.whl
 
 printf "Downloading dataset...\n" 
 # Downloading test 
@@ -49,6 +49,6 @@ wget https://github.com/ninja-build/ninja/releases/download/v1.8.2/ninja-linux.z
 sudo unzip ninja-linux.zip -d /usr/local/bin/
 sudo update-alternatives --install /usr/bin/ninja ninja /usr/local/bin/ninja 1 --force
 
-printf "Training... " 
+printf "Training...\n " 
 # Start training
 python train.py
