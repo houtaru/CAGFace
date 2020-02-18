@@ -21,6 +21,7 @@ TODO
 Flickr-Faces-HQ dataset is used. 
 
 ### Train
+- [ ] Train bisenet for weight
 You can use 
 ``` 
 chmod +x run.sh
