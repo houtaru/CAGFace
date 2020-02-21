@@ -3,7 +3,7 @@
 # Stop if any command fails
 set -e
 
-printf "Deloying updates to Github...\n"
+printf "Deploying updates to Github...\n"
 
 # Add changes to git
 git add .

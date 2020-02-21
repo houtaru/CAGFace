@@ -17,6 +17,21 @@ if [ ! `python -c "import torchvision"` ] || [ `python -c "import torchvision; p
 fi
 pip3 install -r requirements.txt
 
+printf "Downloading bisenet pretrained model...\n"
+if [ ! -f 'checkpoints/bisenet.pth' ]; then
+python - <<END 
+import gdown 
+
+# Variables 
+fileId = '1ulUgHwFct-vFwGCAfJ4Oa9DBlNDzm5r4'
+url = 'https://drive.google.com/uc?id=' + fileId 
+des = 'checkpoints/bisenet.pth' 
+
+# Download dataset 
+gdown.download(url, des, quiet=False) 
+END
+fi
+
 printf "Downloading dataset...\n" 
 # Downloading test 
 if [ ! -f 'celeba.zip' ]; then 
